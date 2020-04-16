@@ -119,6 +119,7 @@ class DetectronCheckpointer(Checkpointer):
             paths_catalog = import_file(
                 "maskrcnn_benchmark.config.paths_catalog", self.cfg.PATHS_CATALOG, True
             )
+
             catalog_f = paths_catalog.ModelCatalog.get(f[len("catalog://") :])
             self.logger.info("{} points to {}".format(f, catalog_f))
             f = catalog_f
