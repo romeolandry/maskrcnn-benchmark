@@ -17,3 +17,15 @@
 - in to maskrcnn_benchmark/data/datasets/coco.py change transform to _transform as say in [Renames the `transforms` attribute of COCODataset](https://github.com/facebookresearch/maskrcnn-benchmark/pull/744/files/8e659893005d1116d88be951ccbf87204db8b4f9)
  - make sure you use torchvision== 0.2.1 and torch==1.4.0
     * not work with torchvision == 0.5.1
+
+done:
+    - in to [maskrcnn_benchmark/structures/segmentation_mask.py] change the line 
+
+        if isinstance(item, torch.Tensor) and item.dtype == torch.uint8:
+        to
+        if isinstance(item, torch.Tensor) and  (item.dtype == torch.uint8 or item.dtype == torch.bool):
+
+        becuase of warning i decided to change all torch.uint8 to torch.bool
+    
+    work!
+    
